@@ -6,6 +6,12 @@
 
 ### Detect. Analyze. Secure.
 
+## 🌐 Live Demo
+
+👉 **Try CyberShield-AI online:**
+
+https://cybershield-ai-k2psblnbu33cmzseerifen.streamlit.app
+
 AI-Powered Network Intrusion Detection Platform built with Machine Learning and Streamlit.
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue?style=for-the-badge&logo=python)
