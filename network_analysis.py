@@ -5,6 +5,7 @@ import time
 import platform
 import sys
 import os
+import tempfile
 
 from datetime import datetime
 from collections import Counter
@@ -274,16 +275,21 @@ def analyze_network(dataset):
 # Sauvegarde du rapport complet
 # ==========================
 
- os.makedirs("results", exist_ok=True)
+import tempfile
+import os
 
-    filename = datetime.now().strftime(
-        "results/network_analysis_report_%Y%m%d_%H%M%S.csv"
-    )
+results_dir = os.path.join(tempfile.gettempdir(), "results")
+os.makedirs(results_dir, exist_ok=True)
 
-    report.to_csv(
-        filename,
-        index=False
-    )
+filename = os.path.join(
+    results_dir,
+    datetime.now().strftime("network_analysis_report_%Y%m%d_%H%M%S.csv")
+)
+
+report.to_csv(
+    filename,
+    index=False
+)
 
 # ==========================
 # Rapport des attaques
@@ -294,9 +300,9 @@ def analyze_network(dataset):
     ]
 
     attack_report.to_csv(
-        "results/attacks_only_report.csv",
-        index=False
-    )
+    os.path.join(results_dir, "attacks_only_report.csv"),
+    index=False
+)
 
 # ==========================
 # Temps d'analyse
