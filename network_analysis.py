@@ -4,6 +4,7 @@ import numpy as np
 import time
 import platform
 import sys
+import os
 
 from datetime import datetime
 from collections import Counter
@@ -272,6 +273,8 @@ def analyze_network(dataset):
 # ==========================
 # Sauvegarde du rapport complet
 # ==========================
+
+ os.makedirs("results", exist_ok=True)
 
     filename = datetime.now().strftime(
         "results/network_analysis_report_%Y%m%d_%H%M%S.csv"
