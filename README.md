@@ -144,7 +144,7 @@ CyberShield-AI/
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/CyberShield-AI.git
+git clone https://github.com/lazreg-lamia/CyberShield-AI.git
 ```
 
 Move into the project folder:
