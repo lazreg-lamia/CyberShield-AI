@@ -596,7 +596,7 @@ if st.button(
 
     with col1:
 
-    summary = f"""
+        summary = f"""
 ========== CyberShield-AI ==========
 Analysis ID : {results['analysis_id']}
 Date : {results['report_date']}
@@ -617,13 +617,13 @@ Network Status : {results['network_status']}
 Analysis Time : {results['analysis_time']:.3f} s
 """
 
-    st.download_button(
-        label="📄 Summary (.txt)",
-        data=summary,
-        file_name="analysis_summary.txt",
-        mime="text/plain",
-        use_container_width=True
-    )
+        st.download_button(
+            label="📄 Summary (.txt)",
+            data=summary.encode('utf-8'),
+            file_name="analysis_summary.txt",
+            mime="text/plain",
+            use_container_width=True
+        )
 
     with col2:
 
