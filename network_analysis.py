@@ -271,25 +271,31 @@ def analyze_network(dataset):
 
     })
 
-# ==========================
-# Sauvegarde du rapport complet
-# ==========================
+    # ==========================
+    # Sauvegarde du rapport complet
+    # ==========================
 
-import tempfile
-import os
+    results_dir = os.path.join(
+        tempfile.gettempdir(),
+        "results"
+    )
 
-results_dir = os.path.join(tempfile.gettempdir(), "results")
-os.makedirs(results_dir, exist_ok=True)
+    os.makedirs(
+        results_dir,
+        exist_ok=True
+    )
 
-filename = os.path.join(
-    results_dir,
-    datetime.now().strftime("network_analysis_report_%Y%m%d_%H%M%S.csv")
-)
+    filename = os.path.join(
+        results_dir,
+        datetime.now().strftime(
+            "network_analysis_report_%Y%m%d_%H%M%S.csv"
+        )
+    )
 
-report.to_csv(
-    filename,
-    index=False
-)
+    report.to_csv(
+        filename,
+        index=False
+    )
 
 # ==========================
 # Rapport des attaques
@@ -299,10 +305,13 @@ report.to_csv(
         report["Résultat"] != "BENIGN"
     ]
 
-    attack_report.to_csv(
-    os.path.join(results_dir, "attacks_only_report.csv"),
-    index=False
-)
+        attack_report.to_csv(
+        os.path.join(
+            results_dir,
+            "attacks_only_report.csv"
+        ),
+        index=False
+    )
 
 # ==========================
 # Temps d'analyse
@@ -364,8 +373,11 @@ Répartition des risques :
 Temps total d'analyse : {round(analysis_time, 3)} s
 """
 
-    with open(
-        "results/analysis_summary.txt",
+        with open(
+        os.path.join(
+            results_dir,
+            "analysis_summary.txt"
+        ),
         "w",
         encoding="utf-8"
     ) as file:
@@ -404,12 +416,12 @@ Temps total d'analyse : {round(analysis_time, 3)} s
 
     })
 
-    statistics.to_csv(
-
-        "results/analysis_statistics.csv",
-
+        statistics.to_csv(
+        os.path.join(
+            results_dir,
+            "analysis_statistics.csv"
+        ),
         index=False
-
     )
 
 # ==========================
