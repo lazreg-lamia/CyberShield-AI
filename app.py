@@ -596,18 +596,34 @@ if st.button(
 
     with col1:
 
-        with open(
-            "results/analysis_summary.txt",
-            "rb"
-        ) as file:
+    summary = f"""
+========== CyberShield-AI ==========
+Analysis ID : {results['analysis_id']}
+Date : {results['report_date']}
 
-            st.download_button(
-                label="📄 Summary (.txt)",
-                data=file,
-                file_name="analysis_summary.txt",
-                mime="text/plain",
-                use_container_width=True
-            )
+Analysis Type : {results['analysis_type']}
+Software Version : {results['software_version']}
+AI Model : {results['model_name']}
+
+Dataset : {results['dataset_name']}
+
+Analyzed Connections : {len(results['prediction_labels'])}
+Normal Connections : {results['benign_count']}
+Detected Attacks : {results['attack_count']}
+Attack Percentage : {results['attack_percentage']:.2f} %
+
+Network Status : {results['network_status']}
+
+Analysis Time : {results['analysis_time']:.3f} s
+"""
+
+    st.download_button(
+        label="📄 Summary (.txt)",
+        data=summary,
+        file_name="analysis_summary.txt",
+        mime="text/plain",
+        use_container_width=True
+    )
 
     with col2:
 
