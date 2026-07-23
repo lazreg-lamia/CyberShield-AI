@@ -305,7 +305,7 @@ def analyze_network(dataset):
         report["Résultat"] != "BENIGN"
     ]
 
-        attack_report.to_csv(
+    attack_report.to_csv(
         os.path.join(
             results_dir,
             "attacks_only_report.csv"
@@ -373,7 +373,7 @@ Répartition des risques :
 Temps total d'analyse : {round(analysis_time, 3)} s
 """
 
-        with open(
+    with open(
         os.path.join(
             results_dir,
             "analysis_summary.txt"
@@ -416,7 +416,7 @@ Temps total d'analyse : {round(analysis_time, 3)} s
 
     })
 
-        statistics.to_csv(
+    statistics.to_csv(
         os.path.join(
             results_dir,
             "analysis_statistics.csv"
